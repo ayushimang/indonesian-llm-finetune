@@ -1,0 +1,33 @@
+
+---
+
+## 📄 File 4: `config.yaml` (Opsional, profesional)
+
+```yaml
+# Training configuration for AMD ROCm
+model:
+  name: "meta-llama/Llama-3.2-3B"
+  quantization: 4bit
+
+training:
+  epochs: 3
+  batch_size: 1
+  gradient_accumulation: 4
+  learning_rate: 2e-4
+  warmup_steps: 100
+  max_length: 512
+
+lora:
+  rank: 16
+  alpha: 32
+  dropout: 0.05
+
+dataset:
+  name: "mesolitica/instruction-22k-indonesian"
+  train_split: "train"
+  max_samples: 1000
+
+hardware:
+  platform: "AMD ROCm"
+  recommended_gpu: "MI250 or MI300"
+  min_vram_gb: 40
